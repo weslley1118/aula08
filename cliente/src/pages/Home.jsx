@@ -10,18 +10,18 @@ export default function Home() {
         const resposta = await fetch("http://localhost:3000/usuarios");
         const dados = await resposta.json();
         setUsuarios(dados);
-      } catch {
+      } 
+      catch {
         alert('Ocorreu um erro no app!');
       }
     }
     buscarUsuario();
   }, [usuarios]);
 
-  const deletar = async=>{
+  const deletar = async(id)=>{
     try{
-      await fetch ('http://localhost:3000/usuarios'+ id,{
-        method:'DELETE'
-      });
+        await fetch('http://localhost:3000/usuarios/' + id, { method: 'DELETE' });
+    setUsuarios(usuario.filter(usuario =>usuario.id !== id));
     }catch{
       alert("");
     }
@@ -35,7 +35,7 @@ export default function Home() {
       {usuarios.map((usuario) =>
         <tr key={usuario.id}>
           <td>{usuario.nome}</td>
-          <td>{usuario.email}</td>
+          <td>{usuario.imagem}</td>
           <td><button onAuxClick={()=> deletar(usuario.id)}>X</button></td>
         </tr>
       )}
