@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useParams, useNavigate } from "react-router-dom";
+import { Button } from "@mui/material";
 
 export default function Alterar() {
   const { id } = useParams(); // ID do usuário vindo da URL
@@ -9,6 +10,13 @@ export default function Alterar() {
   // Buscar os dados do usuário ao carregar o componente
   useEffect(() => {
     const buscarUsuario = async () => {
+      try {
+        const resposta = await fetch(`http://localhost:3000/usuarios/${id}`);
+        const dados = await resposta.json();
+        setUsuario(dados);
+      } catch {
+        alert("Erro ao carregar os dados do usuário.");
+      }
     };
     buscarUsuario();
   }, [id]);
@@ -32,7 +40,7 @@ export default function Alterar() {
       alert("Jogo atualizado com sucesso!");
       navigate("/"); // Redireciona para a página inicial
     } catch {
-      alert("Erro ao atualizar o JOgo.");
+      alert("Erro ao Atualizar o Jogo.");
     }
   };
 
@@ -40,7 +48,7 @@ export default function Alterar() {
     <div>
       <h1>Alterar Jogo</h1>
       <form>
-        <img src={usuario.imagem} alt="Imagem do jogo" style={{while:100, height:100}} />
+        <img src={usuario.imagem} alt="Imagem do Filme" style={{while:100, height:100}} />
         <br/>
         <label><strong>Imagem:</strong></label>
         <input
