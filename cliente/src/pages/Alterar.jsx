@@ -5,7 +5,7 @@ import { Button } from "@mui/material";
 export default function Alterar() {
   const { id } = useParams(); // ID do usuário vindo da URL
   const navigate = useNavigate(); // Para redirecionar após a alteração
-  const [usuario, setUsuario] = useState({ nome: "", descricao: "", imagem:"", preco:"" });
+  const [usuario, setUsuario] = useState({ nome: "", imagem:"", preco:"" });
 
   // Buscar os dados do usuário ao carregar o componente
   useEffect(() => {
@@ -40,7 +40,7 @@ export default function Alterar() {
       alert("Jogo atualizado com sucesso!");
       navigate("/"); // Redireciona para a página inicial
     } catch {
-      alert("Erro ao Atualizar o Jogo.");
+      alert("Erro ao Atualizar o Filme.");
     }
   };
 
@@ -65,14 +65,6 @@ export default function Alterar() {
           value={usuario.nome}
           onChange={handleChange}
         />  
-        <h2>{usuario.descricao}</h2>
-        <label><strong>Descrição</strong></label>
-        <input
-          label="descrição"
-          name="descricao"
-          value={usuario.descricao}
-          onChange={handleChange}
-        />
         <h2>R$: {usuario.preco}</h2>
         <label><strong>Preço:</strong></label>
         <input 

@@ -29,7 +29,7 @@ app.get('/usuarios/:id', (req, res) => {
     const usuario = usuarios.find(u => u.id === parseInt(id));
     
     if (!usuario) {
-        return res.status(404).json({ erro: 'imagem, Nome do jogo, Descrição ou Preço não encontrado' });
+        return res.status(404).json({ erro: 'imagem, Nome do Filme, Descrição ou Preço não encontrado' });
     }
     
     res.status(200).json(usuario);
@@ -42,7 +42,7 @@ app.put('/usuarios/:id', (req, res) => {
     const usuario = usuarios.find(u => u.id === parseInt(id));
     
     if (!usuario) {
-        return res.status(404).json({ erro: 'imagem, Nome do jogo, Descrição ou Preço não encontrado' });
+        return res.status(404).json({ erro: 'imagem, Nome do Filme, Descrição ou Preço não encontrado' });
     }
     usuario.imagem = imagem || usuario.imagem;
     usuario.nome = nome || usuario.nome;
@@ -56,7 +56,7 @@ app.delete('/usuarios/:id', (req, res) => {
     const index = usuarios.findIndex(u => u.id === parseInt(id));
     
     if (index === -1) {
-        return res.status(404).json({ erro: 'imagem, Nome do jogo, Descrição ou Preço não encontrado' });
+        return res.status(404).json({ erro: 'imagem, Nome do Filme, Descrição ou Preço não encontrado' });
     }
     
     usuarios.splice(index, 1);

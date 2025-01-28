@@ -80,24 +80,24 @@ export default function Home() {
 
 
   return (
-    <div className="tudo">
-      <div className="todosbotao">
+    <div>
+      <div>
         <button className="click" onClick={orderAz}>Ordenar A-Z</button>
         <button className="click" onClick={orderZa}>Ordenar Z_A</button>
         <button className="click" onClick={orderPrecoMenor}>Preço: Menor - Maior</button>
         <button className="click" onClick={orderPrecoMaior}>Preço: Maior - Menor</button>
       </div>
 
-      <input className="pesquisas" placeholder="Pesquisar" onChange={(e) => pesquisarItem(e.target.value)} />
+      <input placeholder="Pesquisar" onChange={(e) => pesquisarItem(e.target.value)} />
 
-      <div className="Mutano">
-        <div className="barra-branca"> 
+      <div>
+        <div> 
           <Link to={'/registros'}><button className="Registro"><strong>Registrar</strong></button></Link>
           <button className="Butao" onClick={exportarPDF}><AdfScannerIcon /></button>
         </div>
       </div>
 
-      <div className="Centralizar">
+      <div>
         <table border="1">
           <thead>
             <tr>
@@ -113,9 +113,9 @@ export default function Home() {
                 <td>{usuario.nome}</td>
                 <td>R$: {usuario.preco}</td>
                 <td>
-                  <button className="botao4" onClick={() => deletar(usuario.id)}><strong>Excluir</strong></button>
+                  <button onClick={() => deletar(usuario.id)}><strong>Excluir</strong></button>
                   <Link to={`/Alterar/${usuario.id}`}>
-                    <button className="botao4"><strong>Editar</strong></button>
+                    <button><strong>Editar</strong></button>
                   </Link>
                 </td>
               </tr>

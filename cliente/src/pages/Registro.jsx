@@ -28,7 +28,7 @@ export default function Registro() {
       if (resposta.ok) {
         navigation("/");
       } else {
-        alert("Erro ao registrar O jogo. Tente novamente.");
+        alert("Erro ao registrar O Filme. Tente novamente.");
       }
     } catch (err) {
       alert("Ocorreu um erro na aplicação. Tente novamente mais tarde.");
@@ -72,9 +72,9 @@ export default function Registro() {
           />
         </div>
 
-        <Link to="/"> <button className="botao3" color="primary" type="submit"> Cancelar </button> </Link>
+        <Link to="/"> <button color="primary" type="submit"> Cancelar </button> </Link>
         
-        <button className="botao3" color="primary" type="submit"> Registrar </button>
+        <button color="primary" type="submit"> Registrar </button>
 
       </form>
     </main>
